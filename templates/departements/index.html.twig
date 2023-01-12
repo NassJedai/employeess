@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DepartementsController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="d-flex justify-content-center mb-4">Nos départements </h1>
+
+
+
+    {% for departement in departements %}
+
+        <div class=" d-inline-block card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{ departement.name }}</div>
+            <div class="card-body">
+                <h6 class="card-title">Description</h6>
+                <p class="card-text">{{ departement.description }}</p>
+                <h6 class="card-title">Adresse</h6>
+                <p class="card-text">{{ departement.address }}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
