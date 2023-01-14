@@ -34,21 +34,23 @@ class Employees
     #[ORM\OneToMany(mappedBy: 'employee', targetEntity: Demands::class)]
     private Collection $demands;
 
-    #[ORM\ManyToOne(inversedBy: 'employee')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Salaries $salaries = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employee')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?DeptManager $deptManager = null;
+    //#[ORM\ManyToOne(inversedBy: 'employee')]
+    //#[ORM\JoinColumn(nullable: true)]
+    //private ?Salaries $salaries = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employee')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?DeptEmp $deptEmp = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employee')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Titles $titles = null;
+    //#[ORM\ManyToOne(inversedBy: 'employee')]
+    //#[ORM\JoinColumn(nullable: false)]
+   // private ?DeptManager $deptManager = null;
+
+   // #[ORM\ManyToOne(inversedBy: 'employee')]
+   // #[ORM\JoinColumn(nullable: false)]
+    //private ?DeptEmp $deptEmp = null;
+
+    //#[ORM\ManyToOne(inversedBy: 'employee')]
+    //#[ORM\JoinColumn(nullable: false)]
+   // private ?Titles $titles = null;
 
     public function __construct()
     {
