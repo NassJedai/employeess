@@ -4,19 +4,82 @@ namespace App\Form;
 
 use App\Entity\Employees;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class EmployeeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('birthDate')
-            ->add('firstName')
-            ->add('lastName')
-            ->add('gender')
-            ->add('hireDate')
+            ->add('birthDate', DateType::class, [
+                'attr' => [
+                    'class' =>'form-control',
+                    'minlength' => '2',
+                    'maxlength' => '50'
+                ],
+                'label' => 'Date de Naissance',
+                'label_attr' => [
+                    'class'=>'form-label mt-4'
+                ]
+            ])
+
+            ->add('firstName', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlength'=>'2',
+                    'maxlength'=> '50'
+                ],
+                'label'=> 'Nom',
+                'label_attr'=>['class' =>'form-label mt_4'
+                ]
+            ])
+
+
+            ->add('lastName', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlength'=>'2',
+                    'maxlength'=> '50'
+                ],
+                'label'=> 'Prénom',
+                'label_attr'=>['class' =>'form-label mt_4'
+                ]
+            ])
+
+
+            ->add('gender', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label'=> 'Male or Female',
+                'label_attr'=>['class' =>'form-label mt-4'
+                ]
+            ])
+
+            ->add('hireDate', DateType::class, [
+                'attr' => [
+                    'class' =>'form-control'
+                ],
+                'label' => 'Date d\'embauche',
+                'label_attr' => [
+                    'class'=>'form-label mt-4'
+
+                ]
+            ])
+
+            ->add('submit', SubmitType::class, [
+                'attr' => [
+                    'class' =>'btn btn-primary mt-4'
+                ],
+                'label' =>'Créer mon employée'
+            ])
         ;
     }
 

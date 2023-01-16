@@ -8,7 +8,16 @@
 {% block body %}
 
     <div class="container">
+
         <h1 class=""mt-4>Nouveau employées</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+
         {{ form(form) }}
     </div>
 

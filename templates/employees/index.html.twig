@@ -4,6 +4,16 @@
 
 {% block body %}
 
+    <a href="{{ path('app_employees_nouveau')}}" class="btn btn-primary">
+        Créer un employee
+    </a>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <table class="table table-hover">
         <thead>
         <tr>
@@ -27,8 +37,8 @@
             <td>{{ employee.gender }}</td>
             <td>{{ employee.birthDate | date('d-m-Y') }}</td>
             <td>{{ employee.hireDate | date('d-m-Y') }}</td>
-            <td><button type="button" class="btn btn-success">Modifier</button></td>
-            <td><button type="button" class="btn btn-primary">Supprimer</button></td>
+            <td><a href="{{ path('employee.edit', {"id" : employee.id}) }}" class="btn btn-success">Modifier</a></td>
+            <td><a href="{{ path('employee.delete', {"id" : employee.id}) }}" class="btn btn-primary">Supprimer</a></td>
         </tr>
 
 {% endfor %}
